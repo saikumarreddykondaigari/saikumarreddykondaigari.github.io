@@ -299,7 +299,7 @@ h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.08; letter-s
     rgba(0, 255, 204, 0.07) 60%,
     transparent 100%
   );
-  animation: scanSweep 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: scanSweep 5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
   animation-delay: 1.5s;
   opacity: 0;
 }
@@ -688,11 +688,24 @@ section { padding: clamp(3rem, 7vw, 5rem) 0; }
    ═══════════════════════════════════════════════════ */
 .gantt-scroll {
   overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--teal) var(--surface);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 1.4rem 1.4rem 1.1rem;
 }
+.gantt-scroll::-webkit-scrollbar { height: 8px; }
+.gantt-scroll::-webkit-scrollbar-track {
+  background: var(--surface);
+  border-radius: 999px;
+}
+.gantt-scroll::-webkit-scrollbar-thumb {
+  background: var(--teal);
+  border: 2px solid var(--surface);
+  border-radius: 999px;
+}
+.gantt-scroll::-webkit-scrollbar-thumb:hover { background: var(--green); }
 
 .gantt {
   min-width: 720px;
@@ -741,7 +754,12 @@ section { padding: clamp(3rem, 7vw, 5rem) 0; }
   animation-delay: var(--d, 0s);
 }
 .bar.muted { background: var(--bar-muted); }
-.bar.now { background: var(--amber); }
+.bar.now {
+  background: var(--amber);
+  animation: grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both,
+    current-role-pulse 4s ease-in-out infinite;
+  animation-delay: var(--d, 0s), calc(var(--d, 0s) + 0.9s);
+}
 .bar.accent { background: var(--accent); }
 
 .bar em {
@@ -758,6 +776,11 @@ section { padding: clamp(3rem, 7vw, 5rem) 0; }
 @keyframes grow {
   0% { transform: scaleX(0); }
   100% { transform: scaleX(1); }
+}
+
+@keyframes current-role-pulse {
+  0%, 100% { background-color: var(--amber); }
+  50% { background-color: var(--accent); }
 }
 
 .legend { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
@@ -1065,6 +1088,7 @@ footer .contact { justify-content: flex-end; }
 
 @media (prefers-reduced-motion: reduce) {
   .bar { animation: none; }
+  .bar.now { animation: none; background: var(--amber); }
   .btn { transition: none; }
   .status i { animation: none; }
   .tool-card { transition: none; }
