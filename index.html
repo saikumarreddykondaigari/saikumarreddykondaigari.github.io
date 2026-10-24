@@ -146,7 +146,7 @@
           </div>
         </div>
         <div class="legend">
-          <span><i style="background:var(--green)"></i>current</span>
+          <span><i style="background:var(--green)"></i>200 OK: serving</span>
           <span><i style="background:var(--blue)"></i>engineering</span>
           <span><i style="background:var(--bar-muted)"></i>foundations</span>
         </div>
@@ -163,101 +163,45 @@
           <p class="comment">// every tool below is used daily by QA and Dev teams</p>
         </div>
 
-        <div class="tool-grid">
-
-          <!-- AI Tools -->
-          <div class="tool-category">
-            <h3 class="cat-label ai-label"><span class="cat-tag">🤖 AI</span> Intelligent Automation <span
-                class="cat-count">×6</span></h3>
-            <div class="tool-cards">
-              <div class="tool-card ai-card">
-                <div class="tool-top"><span class="tool-badge ai-badge">AI</span><span class="tool-status">● live</span>
-                </div>
-                <h4>Test Script Generator</h4>
-                <p>NL → Playwright scripts. Cuts script-writing time for the QA team.</p>
-                <div class="tool-tech"><span>Claude</span><span>Python</span><span>Playwright</span></div>
-              </div>
-              <div class="tool-card ai-card">
-                <div class="tool-top"><span class="tool-badge ai-badge">AI</span><span class="tool-status">● live</span>
-                </div>
-                <h4>Script Translator</h4>
-                <p>Cross-framework test script translation. Reuse tests everywhere.</p>
-                <div class="tool-tech"><span>Claude / OpenAI</span><span>Python</span></div>
-              </div>
-              <div class="tool-card ai-card">
-                <div class="tool-top"><span class="tool-badge ai-badge">AI</span><span class="tool-status">● live</span>
-                </div>
-                <h4>Peer Review</h4>
-                <p>AI code review for test scripts. Catches issues, enforces standards.</p>
-                <div class="tool-tech"><span>Claude / OpenAI</span><span>Python</span></div>
-              </div>
-              <div class="tool-card ai-card">
-                <div class="tool-top"><span class="tool-badge dev-badge">Dev</span><span class="tool-status">●
-                    live</span></div>
-                <h4>Jira RAG</h4>
-                <p>Natural language queries over Jira tickets, history &amp; docs.</p>
-                <div class="tool-tech"><span>RAG</span><span>Claude</span><span>Jira API</span></div>
-              </div>
-              <div class="tool-card ai-card">
-                <div class="tool-top"><span class="tool-badge dev-badge">Dev</span><span class="tool-status">●
-                    live</span></div>
-                <h4>Script Executor</h4>
-                <p>Run scripts with AI error analysis and auto-retry logic.</p>
-                <div class="tool-tech"><span>Python</span><span>Playwright</span><span>AI</span></div>
-              </div>
-              <div class="tool-card ai-card">
-                <div class="tool-top"><span class="tool-badge ml-badge">ML</span><span class="tool-status">● live</span>
-                </div>
-                <h4>VaLENT</h4>
-                <p>ML validation engine. Detects anomalies in test outputs.</p>
-                <div class="tool-tech"><span>ML</span><span>Python</span></div>
-              </div>
-            </div>
+        <div class="tool-globe-shell">
+          <div class="tool-globe-intro">
+            <span class="globe-kicker">// interactive tool universe</span>
+            <p>Six AI &amp; developer tools sit north of the workflow equator. Five QA utilities sit south. Select a node to inspect the work behind it.</p>
           </div>
 
-          <!-- QA Utility Tools -->
-          <div class="tool-category">
-            <h3 class="cat-label util-label"><span class="cat-tag">🔧 QA</span> Productivity Utilities <span
-                class="cat-count">×5</span></h3>
-            <div class="tool-cards">
-              <div class="tool-card util-card">
-                <div class="tool-top"><span class="tool-badge util-badge">QA</span><span class="tool-status">●
-                    live</span></div>
-                <h4>GeoBrowser</h4>
-                <p>Test from any location globally. No VPN needed.</p>
-                <div class="tool-tech"><span>Electron</span><span>Playwright</span></div>
-              </div>
-              <div class="tool-card util-card">
-                <div class="tool-top"><span class="tool-badge util-badge">QA</span><span class="tool-status">●
-                    live</span></div>
-                <h4>PW Extension</h4>
-                <p>Record, inspect &amp; debug Playwright selectors in-browser.</p>
-                <div class="tool-tech"><span>Chrome Ext</span><span>Playwright</span></div>
-              </div>
-              <div class="tool-card util-card">
-                <div class="tool-top"><span class="tool-badge util-badge">QA</span><span class="tool-status">●
-                    live</span></div>
-                <h4>Log Tiles</h4>
-                <p>Visual test log dashboard for fast debugging.</p>
-                <div class="tool-tech"><span>Python</span><span>Streamlit</span></div>
-              </div>
-              <div class="tool-card util-card">
-                <div class="tool-top"><span class="tool-badge util-badge">QA</span><span class="tool-status">●
-                    live</span></div>
-                <h4>EviSnap</h4>
-                <p>Auto-screenshot test steps for compliance trails.</p>
-                <div class="tool-tech"><span>Python</span><span>Playwright</span></div>
-              </div>
-              <div class="tool-card util-card">
-                <div class="tool-top"><span class="tool-badge util-badge">QA</span><span class="tool-status">●
-                    live</span></div>
-                <h4>PDF Utility</h4>
-                <p>Extract, compare &amp; validate PDF test artifacts at scale.</p>
-                <div class="tool-tech"><span>Python</span></div>
-              </div>
-            </div>
+          <div class="tool-globe-stage" aria-label="Rotating globe of the 11 internal tools">
+            <canvas class="tool-globe-canvas" aria-hidden="true"></canvas>
+            <div class="globe-hemisphere globe-north"><span>06</span> AI &amp; DEV</div>
+            <div class="globe-equator"><button type="button" id="globe-see-all" aria-expanded="false" aria-controls="globe-inventory">SEE ALL <b>11</b></button></div>
+            <div class="globe-hemisphere globe-south"><span>05</span> QA UTILITIES</div>
+
+            <button class="globe-node ai-node active" style="--x:17%;--y:27%" type="button" data-kind="AI" data-title="Test Script Generator" data-description="Natural-language prompts to Playwright scripts, reducing script-writing time for the QA team." data-tech="Claude|Python|Playwright" aria-pressed="true"><i></i><span>Test Script<br>Generator</span></button>
+            <button class="globe-node ai-node" style="--x:50%;--y:14%" type="button" data-kind="AI" data-title="Script Translator" data-description="Cross-framework test script translation so teams can reuse tests across their automation stack." data-tech="Claude / OpenAI|Python" aria-pressed="false"><i></i><span>Script<br>Translator</span></button>
+            <button class="globe-node ai-node" style="--x:83%;--y:27%" type="button" data-kind="AI" data-title="Peer Review" data-description="AI code review for test scripts that catches issues and helps teams enforce their standards." data-tech="Claude / OpenAI|Python" aria-pressed="false"><i></i><span>Peer<br>Review</span></button>
+            <button class="globe-node ai-node" style="--x:25%;--y:46%" type="button" data-kind="DEV" data-title="Jira RAG" data-description="Natural-language queries across Jira tickets, history, and documentation." data-tech="RAG|Claude|Jira API" aria-pressed="false"><i></i><span>Jira RAG</span></button>
+            <button class="globe-node ai-node" style="--x:75%;--y:46%" type="button" data-kind="DEV" data-title="Script Executor" data-description="Script execution with AI error analysis and auto-retry logic." data-tech="Python|Playwright|AI" aria-pressed="false"><i></i><span>Script<br>Executor</span></button>
+            <button class="globe-node ai-node" style="--x:50%;--y:36%" type="button" data-kind="ML" data-title="VaLENT" data-description="Machine-learning validation that detects anomalies in test outputs." data-tech="ML|Python" aria-pressed="false"><i></i><span>VaLENT</span></button>
+
+            <button class="globe-node qa-node" style="--x:16%;--y:74%" type="button" data-kind="QA" data-title="GeoBrowser" data-description="Test from locations around the world without relying on a VPN." data-tech="Electron|Playwright" aria-pressed="false"><i></i><span>GeoBrowser</span></button>
+            <button class="globe-node qa-node" style="--x:35%;--y:89%" type="button" data-kind="QA" data-title="PW Extension" data-description="Record, inspect, and debug Playwright selectors directly in the browser." data-tech="Chrome Extension|Playwright" aria-pressed="false"><i></i><span>PW<br>Extension</span></button>
+            <button class="globe-node qa-node" style="--x:65%;--y:89%" type="button" data-kind="QA" data-title="Log Tiles" data-description="A visual test-log dashboard built for faster debugging." data-tech="Python|Streamlit" aria-pressed="false"><i></i><span>Log Tiles</span></button>
+            <button class="globe-node qa-node" style="--x:84%;--y:74%" type="button" data-kind="QA" data-title="EviSnap" data-description="Automatic test-step screenshots for compliance trails." data-tech="Python|Playwright" aria-pressed="false"><i></i><span>EviSnap</span></button>
+            <button class="globe-node qa-node" style="--x:50%;--y:66%" type="button" data-kind="QA" data-title="PDF Utility" data-description="Extract, compare, and validate PDF test artifacts at scale." data-tech="Python" aria-pressed="false"><i></i><span>PDF Utility</span></button>
           </div>
 
+          <article class="globe-detail" aria-live="polite">
+            <div class="globe-detail-status"><span id="globe-detail-kind">AI</span><i></i> <span>selected tool</span></div>
+            <div class="globe-detail-copy">
+              <h3 id="globe-detail-title">Test Script Generator</h3>
+              <p id="globe-detail-description">Natural-language prompts to Playwright scripts, reducing script-writing time for the QA team.</p>
+            </div>
+            <div class="globe-detail-tech" id="globe-detail-tech"><span>Claude</span><span>Python</span><span>Playwright</span></div>
+          </article>
+
+          <section class="globe-inventory" id="globe-inventory" aria-label="All 11 tools" hidden>
+            <div class="globe-inventory-head"><span>// tool index · select a card to inspect it on the globe</span><button type="button" id="globe-inventory-close" aria-label="Close tool index">×</button></div>
+            <div class="globe-inventory-list" id="globe-inventory-list"></div>
+          </section>
         </div>
 
         <div class="tools-summary">
@@ -453,6 +397,260 @@
     <span class="fb-right">Ln 1, Col 1</span>
     <span class="fb-right">Sai Kumar Reddy © 2026</span>
   </div>
+
+  <script>
+    (() => {
+      const canvas = document.querySelector('.tool-globe-canvas');
+      const stage = document.querySelector('.tool-globe-stage');
+      const nodes = [...document.querySelectorAll('.globe-node')];
+      const seeAll = document.querySelector('#globe-see-all');
+      const inventory = document.querySelector('#globe-inventory');
+      const inventoryList = document.querySelector('#globe-inventory-list');
+      const closeInventory = document.querySelector('#globe-inventory-close');
+      const toolsSection = document.querySelector('#tools');
+      const detail = {
+        kind: document.querySelector('#globe-detail-kind'),
+        title: document.querySelector('#globe-detail-title'),
+        description: document.querySelector('#globe-detail-description'),
+        tech: document.querySelector('#globe-detail-tech')
+      };
+      const ctx = canvas?.getContext('2d');
+      if (!canvas || !stage || !ctx || !nodes.length) return;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let width = 0, height = 0, frame = 0, angle = 0, lastTime = 0, selectionLocked = false;
+      const slots = {
+        ai: [['17%', '27%'], ['50%', '14%'], ['83%', '27%'], ['25%', '46%'], ['75%', '46%'], ['50%', '36%']],
+        qa: [['16%', '74%'], ['35%', '89%'], ['65%', '89%'], ['84%', '74%'], ['50%', '66%']]
+      };
+
+      const resize = () => {
+        const box = stage.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = box.width;
+        height = box.height;
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
+
+      const drawPath = (points, color, dash = []) => {
+        if (points.length < 2) return;
+        ctx.beginPath();
+        points.forEach((point, index) => index ? ctx.lineTo(point.x, point.y) : ctx.moveTo(point.x, point.y));
+        ctx.strokeStyle = color;
+        ctx.setLineDash(dash);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      };
+
+      const draw = (now) => {
+        const elapsed = lastTime ? Math.min(now - lastTime, 40) : 16;
+        lastTime = now;
+        if (!reduceMotion.matches) angle += elapsed * 0.0002;
+        ctx.clearRect(0, 0, width, height);
+
+        const cx = width / 2;
+        const cy = height * .515;
+        const radius = Math.min(width * .305, height * .34, 205);
+        const project = (latitude, longitude) => {
+          const long = longitude + angle;
+          return {
+            x: cx + radius * Math.cos(latitude) * Math.sin(long),
+            y: cy - radius * Math.sin(latitude),
+            z: Math.cos(latitude) * Math.cos(long)
+          };
+        };
+
+        const halo = ctx.createRadialGradient(cx, cy, radius * .7, cx, cy, radius * 1.32);
+        halo.addColorStop(0, 'rgba(0,212,170,0)');
+        halo.addColorStop(.72, 'rgba(0,212,170,.08)');
+        halo.addColorStop(1, 'rgba(0,212,170,0)');
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius * 1.32, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.strokeStyle = 'rgba(162,155,254,.13)';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, radius * 1.42, radius * .31, -.12, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.strokeStyle = 'rgba(0,212,170,.16)';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, radius * 1.24, radius * .36, .25, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+
+        const fill = ctx.createRadialGradient(cx - radius * .32, cy - radius * .35, 0, cx, cy, radius);
+        fill.addColorStop(0, 'rgba(24,56,76,.85)');
+        fill.addColorStop(1, 'rgba(8,20,36,.74)');
+        ctx.fillStyle = fill;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let latitude = -1.15; latitude <= 1.15; latitude += .38) {
+          const near = [];
+          const far = [];
+          for (let step = 0; step <= 120; step++) {
+            const point = project(latitude, step / 120 * Math.PI * 2);
+            (point.z >= 0 ? near : far).push(point);
+          }
+          drawPath(far, 'rgba(162,155,254,.08)', [3, 5]);
+          drawPath(near, 'rgba(0,212,170,.27)');
+        }
+
+        for (let longitude = 0; longitude < Math.PI; longitude += Math.PI / 8) {
+          const points = [];
+          for (let step = 0; step <= 100; step++) points.push(project(-Math.PI / 2 + step / 100 * Math.PI, longitude));
+          const midpoint = project(0, longitude);
+          drawPath(points, midpoint.z >= 0 ? 'rgba(0,212,170,.23)' : 'rgba(162,155,254,.08)', midpoint.z >= 0 ? [] : [3, 5]);
+        }
+
+        const equatorNear = [];
+        const equatorFar = [];
+        for (let step = 0; step <= 140; step++) {
+          const point = project(0, step / 140 * Math.PI * 2);
+          (point.z >= 0 ? equatorNear : equatorFar).push(point);
+        }
+        drawPath(equatorFar, 'rgba(0,212,170,.16)', [4, 5]);
+        drawPath(equatorNear, 'rgba(0,255,204,.9)');
+
+        ctx.strokeStyle = 'rgba(0,212,170,.45)';
+        ctx.lineWidth = 1.25;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.stroke();
+
+        if (!reduceMotion.matches) frame = requestAnimationFrame(draw);
+      };
+
+      const nodeGroup = (node) => node.classList.contains('qa-node') ? 'qa' : 'ai';
+      const setNodeSlot = (node, slotIndex) => {
+        const [x, y] = slots[nodeGroup(node)][slotIndex];
+        node.dataset.slot = String(slotIndex);
+        node.style.setProperty('--x', x);
+        node.style.setProperty('--y', y);
+      };
+      const shuffled = (items) => [...items].sort(() => Math.random() - .5);
+
+      nodes.forEach((node, index) => {
+        const group = nodeGroup(node);
+        const groupIndex = nodes.filter(item => nodeGroup(item) === group).indexOf(node);
+        node.dataset.slot = String(groupIndex);
+      });
+
+      const shiftNodes = () => {
+        if (document.hidden || reduceMotion.matches) return;
+        ['ai', 'qa'].forEach(group => {
+          const groupNodes = nodes.filter(node => nodeGroup(node) === group);
+          const frozenNodes = groupNodes.filter(node => node.classList.contains('frozen') || node.classList.contains('locked'));
+          const availableSlots = slots[group].map((_, index) => index)
+            .filter(index => !frozenNodes.some(node => Number(node.dataset.slot) === index));
+          const movingNodes = groupNodes.filter(node => !node.classList.contains('frozen') && !node.classList.contains('locked'));
+          shuffled(availableSlots).forEach((slotIndex, index) => setNodeSlot(movingNodes[index], slotIndex));
+        });
+      };
+
+      const setInventoryOpen = (open) => {
+        if (!inventory || !seeAll) return;
+        inventory.hidden = !open;
+        seeAll.setAttribute('aria-expanded', String(open));
+      };
+
+      const selectNode = (node, lock = false) => {
+        if (lock) selectionLocked = true;
+        nodes.forEach(item => {
+          const selected = item === node;
+          item.classList.toggle('active', selected);
+          item.setAttribute('aria-pressed', String(selected));
+          if (lock) item.classList.toggle('locked', selected);
+        });
+        detail.kind.textContent = node.dataset.kind;
+        detail.title.textContent = node.dataset.title;
+        detail.description.textContent = node.dataset.description;
+        detail.tech.replaceChildren(...node.dataset.tech.split('|').map(name => {
+          const tag = document.createElement('span');
+          tag.textContent = name;
+          return tag;
+        }));
+        document.querySelectorAll('.inventory-item').forEach(item => item.classList.toggle('active', item.dataset.tool === node.dataset.title));
+      };
+
+      if (inventoryList) {
+        nodes.forEach(node => {
+          const item = document.createElement('button');
+          const kind = document.createElement('span');
+          const title = document.createElement('b');
+          const tech = document.createElement('small');
+          item.type = 'button';
+          item.className = `inventory-item ${nodeGroup(node)}`;
+          item.dataset.tool = node.dataset.title;
+          kind.className = 'inventory-kind';
+          kind.textContent = node.dataset.kind;
+          title.textContent = node.dataset.title;
+          tech.textContent = node.dataset.tech.split('|').join(' · ');
+          item.append(kind, title, tech);
+          item.addEventListener('click', () => {
+            selectNode(node, true);
+            setInventoryOpen(false);
+          });
+          inventoryList.append(item);
+        });
+      }
+
+      nodes.forEach(node => {
+        node.addEventListener('click', () => selectNode(node, true));
+        node.addEventListener('mouseenter', () => node.classList.add('frozen'));
+        node.addEventListener('mouseleave', () => {
+          if (!node.classList.contains('locked')) node.classList.remove('frozen');
+        });
+        node.addEventListener('focus', () => node.classList.add('frozen'));
+        node.addEventListener('blur', () => {
+          if (!node.classList.contains('locked')) node.classList.remove('frozen');
+        });
+      });
+      seeAll?.addEventListener('click', () => setInventoryOpen(inventory?.hidden));
+      closeInventory?.addEventListener('click', () => setInventoryOpen(false));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setInventoryOpen(false);
+      });
+      if ('IntersectionObserver' in window && toolsSection) {
+        new IntersectionObserver(entries => {
+          if (!entries[0].isIntersecting) setInventoryOpen(false);
+        }, { threshold: .08 }).observe(toolsSection);
+      }
+      new ResizeObserver(resize).observe(stage);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) cancelAnimationFrame(frame);
+        else if (!reduceMotion.matches) { lastTime = 0; frame = requestAnimationFrame(draw); }
+      });
+      resize();
+      draw(0);
+      const scheduleNodeShift = () => {
+        if (reduceMotion.matches) return;
+        window.setTimeout(() => {
+          shiftNodes();
+          scheduleNodeShift();
+        }, 4300 + Math.random() * 2800);
+      };
+      const scheduleRandomSelection = () => {
+        window.setTimeout(() => {
+          const interactionInProgress = nodes.some(node => node.matches(':hover, :focus'));
+          if (!selectionLocked && !document.hidden && !interactionInProgress) {
+            const candidates = nodes.filter(node => !node.classList.contains('active'));
+            selectNode(candidates[Math.floor(Math.random() * candidates.length)]);
+          }
+          scheduleRandomSelection();
+        }, 3000 + Math.random() * 17000);
+      };
+      scheduleNodeShift();
+      scheduleRandomSelection();
+    })();
+  </script>
 
 </body>
 
